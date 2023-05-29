@@ -1,0 +1,25 @@
+[versions]
+kotlin = "1.8.21"
+spring-boot = "3.0.5"
+spring = "6.0.8"
+kotest = "5.6.2"
+junit = "5.9.3"
+[libraries]
+junit-bom = { module = "org.junit:junit-bom", version = "5.9.1" }
+spring-bom = { module = "org.springframework:spring-framework-bom", version.ref = "spring" }
+spring-boot-bom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
+junit-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+kotest-jvm = { module = "io.kotest:kotest-runner-junit5-jvm", version.ref = "kotest" }
+kotest-core = { module = "io.kotest:kotest-assertions-core-jvm", version.ref = "kotest" }
+mockk = { module = "io.mockk:mockk-jvm", version = "1.13.5" }
+slf4japi = { module = "org.slf4j:slf4j-api", version = "2.0.7" }
+[plugins]
+jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+spring-boot = { id = "org.springframework.boot.spring-boot-gradle-plugin", version.ref = "spring-boot" }
+spring-kotlin = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+spring-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
+
+[bundles]
+test = ["kotest-jvm", "kotest-core", "mockk"]
+junit = ["junit-api", "junit-engine"]
