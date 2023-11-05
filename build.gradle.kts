@@ -5,14 +5,13 @@ import java.nio.charset.StandardCharsets
 plugins {
     alias(libs.plugins.jvm)
 }
-val groupId = "org.example.itm"
+val groupId = "org.example"
 val appVersion = "1.0-SNAPSHOT"
 group = groupId
 version = appVersion
 
 allprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
-    apply(plugin = "version-catalog")
 
     repositories {
         mavenCentral()
@@ -25,7 +24,6 @@ allprojects {
         kotlin("stdlib")
     }
     val jvmVersion = JavaVersion.VERSION_17
-    val kotlinApiVersion = "1.8"
     tasks.test {
         useJUnitPlatform()
         testLogging.showExceptions = true
@@ -42,7 +40,6 @@ allprojects {
     tasks.withType<KotlinCompile> {
         kotlinOptions {
             kotlinOptions {
-                apiVersion = kotlinApiVersion
                 javaParameters = true
             }
         }
